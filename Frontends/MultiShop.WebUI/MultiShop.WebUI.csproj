@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\shoppingcartimages\" />
     <Folder Include="wwwroot\images\productdetaildemoimages\" />
   </ItemGroup>
 
