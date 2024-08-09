@@ -44,7 +44,8 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 Email = createCargoCustomerDto.Email,
                 Name = createCargoCustomerDto.Name,
                 Phone = createCargoCustomerDto.Phone,
-                Surname = createCargoCustomerDto.Surname
+                Surname = createCargoCustomerDto.Surname,
+                UserCustomerId = createCargoCustomerDto.UserCustomerId
             };
             _customerService.TInsert(cargoCustomer);
             return Ok("Kargo Musteri Ekleme Islemi Basariyla Yapildi");
@@ -69,10 +70,17 @@ namespace MultiShop.Cargo.WebApi.Controllers
                 Email = updateCargoCustomerDto.Email,
                 Name = updateCargoCustomerDto.Name,
                 Phone = updateCargoCustomerDto.Phone,
-                Surname = updateCargoCustomerDto.Surname
+                Surname = updateCargoCustomerDto.Surname,
+                UserCustomerId = updateCargoCustomerDto.UserCustomerId
             };
             _customerService.TUpdate(customer);
             return Ok("Kargo Musteri Guncelleme Islemi Basariyla Yapildi");
+        }
+
+        [HttpGet("GetCargoCustomerById")]
+        public IActionResult GetCargoCustomerById(string id)
+        {
+            return Ok(_customerService.TGetCargoCustomerById(id));
         }
     }
 }
